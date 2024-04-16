@@ -7,8 +7,6 @@ import { KnownTechs } from "./components/sections/home/known-techs";
 import { WorkExperience } from "./components/sections/home/work-experience";
 import { HighlightedProjects } from "./components/sections/home/highlighted-projects";
 
-const techs = [{ name: "Javascript", iconSvg: "", startDate: "10-10-2021" }];
-
 const experiences: any = [
   {
     companyLogo: {
@@ -62,10 +60,21 @@ export default async function Home() {
             url
             iconSvg
           }
-          knowteches {
+          knownteches {
             iconSvg
             name
             startDate
+          }
+          highlightProjects {
+            slug
+            thumbnail {
+              url
+            }
+            title
+            shortDescription
+            teches {
+              name
+            }
           }
         }
       }
@@ -75,8 +84,8 @@ export default async function Home() {
   return (
     <>
       <HeroSection homeInfo={page} />
-      <KnownTechs techs={techs} />
-      <HighlightedProjects projects={projects} />
+      <KnownTechs techs={page.knownteches} />
+      <HighlightedProjects projects={page.highlightProjects} />
       <WorkExperience experiences={experiences} />
     </>
   );

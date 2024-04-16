@@ -16,7 +16,7 @@ export type HomePageInfo = {
     url: string;
   };
   socials: Social[];
-  knowntechs: KnownTech[];
+  knownteches: KnownTech[];
   highlightProjects: Project[];
 };
 

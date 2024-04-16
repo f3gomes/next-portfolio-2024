@@ -24,7 +24,7 @@ export type Project = {
   };
   title: string;
   shortDescription: string;
-  technologies: Technology[];
+  teches: Technology[];
   pageThumbnail: {
     url: string;
   };

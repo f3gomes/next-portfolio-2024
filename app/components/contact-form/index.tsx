@@ -34,7 +34,7 @@ export const ContactForm = () => {
       <div className="w-full max-w-[420px] mx-auto">
         <SectionTitle
           subtitle="contato"
-          title="Solicite meus serviços diretamente"
+          title="Entre em contato comigo..."
           className="items-center text-center"
         />
 

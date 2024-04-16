@@ -1,10 +1,10 @@
-import { SectionTitle } from '@/app/components/section-title'
-import { ExperienceItem } from './experience-item'
-import { WorkExperience as IWorkExperience } from '@/app/types/work-experience'
+import { SectionTitle } from "@/app/components/section-title";
+import { ExperienceItem } from "./experience-item";
+import { WorkExperience as IWorkExperience } from "@/app/types/work-experience";
 
 type WorkExperienceProps = {
-  experiences: IWorkExperience[]
-}
+  experiences: IWorkExperience[];
+};
 
 export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
   return (
@@ -15,7 +15,7 @@ export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
           title="Experiência Profissional"
         />
         <p className="text-gray-400 mt-6">
-          Estou sempre aberto a novos desafios e projetos emocionantes. Vamos
+          Estou sempre aberto a novos desafios e projetos desafiadores. Vamos
           trabalhar juntos para criar soluções incríveis para sua empresa!
         </p>
       </div>
@@ -29,5 +29,5 @@ export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};

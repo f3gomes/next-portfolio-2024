@@ -4,46 +4,12 @@ import { GraphQLClient } from "graphql-request";
 import { HomePageData } from "./types/page-info";
 import HeroSection from "./components/sections/home/hero-section";
 import { KnownTechs } from "./components/sections/home/known-techs";
-import { WorkExperience } from "./components/sections/home/work-experience";
 import { HighlightedProjects } from "./components/sections/home/highlighted-projects";
-
-const experiences: any = [
-  {
-    companyLogo: {
-      url: "/images/hero-bg.png",
-    },
-    role: "role",
-    companyName: "companyName",
-    companyUrl: "companyUrl",
-    startDate: "10-10-2021",
-    endDate: "10-10-2022",
-    technologies: [],
-    description: {
-      raw: "",
-    },
-  },
-];
-
-export const projects: any = [
-  {
-    slug: "slug",
-    thumbnail: {
-      url: "/images/hero-bg.png",
-    },
-    title: "Title",
-    shortDescription: "Short Description",
-    technologies: [],
-    pageThumbnail: { url: "PageThumbnail" },
-    sections: [],
-    description: { text: "Text Description" },
-    liveProjectUrl: "LiveProject",
-    githubUrl: "Github URL",
-  },
-];
+import { WorkExperience } from "./components/sections/home/work-experience";
 
 export default async function Home() {
   const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL!);
-  const { page }: HomePageData = await hygraph.request(
+  const { page, workExperiences }: HomePageData = await hygraph.request(
     `
       query PageInfoQuery {
         page(where: {slug: "home"}) {
@@ -77,6 +43,23 @@ export default async function Home() {
             }
           }
         }
+
+        workExperiences {
+          companyLogo {
+            url
+          }
+          role
+          companyName
+          companyUrl
+          startDate
+          endDate
+          description {
+            raw
+          }
+          teches {
+            name
+          }
+        }
       }
       `
   );
@@ -86,7 +69,7 @@ export default async function Home() {
       <HeroSection homeInfo={page} />
       <KnownTechs techs={page.knownteches} />
       <HighlightedProjects projects={page.highlightProjects} />
-      <WorkExperience experiences={experiences} />
+      <WorkExperience experiences={workExperiences} />
     </>
   );
 }

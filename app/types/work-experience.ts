@@ -10,8 +10,8 @@ export type WorkExperience = {
   companyUrl: string;
   startDate: string;
   endDate: string;
-  technologies: Technology[];
+  teches: Technology[];
   description: {
-    raw?: RichTextContent;
+    raw: RichTextContent;
   };
 };

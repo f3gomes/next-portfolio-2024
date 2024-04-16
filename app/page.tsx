@@ -1,9 +1,14 @@
+export const revalidate = 0;
+
+import { GraphQLClient } from "graphql-request";
+import { HomePageData } from "./types/page-info";
 import HeroSection from "./components/sections/home/hero-section";
-import { HighlightedProjects } from "./components/sections/home/highlighted-projects";
 import { KnownTechs } from "./components/sections/home/known-techs";
 import { WorkExperience } from "./components/sections/home/work-experience";
+import { HighlightedProjects } from "./components/sections/home/highlighted-projects";
 
 const techs = [{ name: "Javascript", iconSvg: "", startDate: "10-10-2021" }];
+
 const experiences: any = [
   {
     companyLogo: {
@@ -20,6 +25,7 @@ const experiences: any = [
     },
   },
 ];
+
 export const projects: any = [
   {
     slug: "slug",
@@ -38,9 +44,37 @@ export const projects: any = [
 ];
 
 export default async function Home() {
+  const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL!);
+  const { page }: HomePageData = await hygraph.request(
+    `
+      query PageInfoQuery {
+        page(where: {slug: "home"}) {
+          intro {
+            raw
+          }
+          teches {
+            name
+          }
+          profileImage {
+            url
+          }
+          socials {
+            url
+            iconSvg
+          }
+          knowteches {
+            iconSvg
+            name
+            startDate
+          }
+        }
+      }
+      `
+  );
+
   return (
     <>
-      <HeroSection />
+      <HeroSection homeInfo={page} />
       <KnownTechs techs={techs} />
       <HighlightedProjects projects={projects} />
       <WorkExperience experiences={experiences} />

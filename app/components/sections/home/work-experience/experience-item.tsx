@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { differenceInMonths, differenceInYears, format } from "date-fns";
+
 import Image from "next/image";
 import { ptBR } from "date-fns/locale";
 import { RichText } from "@/app/components/rich-text";
 import { TechBadge } from "@/app/components/tech-badge";
 import { WorkExperience } from "@/app/types/work-experience";
-// import { fadeUpAnimation, techBadgeAnimation } from '@/app/lib/animations'
+import { fadeUpAnimation, techBadgeAnimation } from "@/app/lib/animations";
 
 type ExperienceItemProps = {
   experience: WorkExperience;
@@ -47,9 +48,9 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
 
   return (
     <motion.div
-      className="grid grid-cols-[40px,1fr] gap-4 md:gap-10"
-      // {...fadeUpAnimation}
+      {...fadeUpAnimation}
       transition={{ duration: 0.5 }}
+      className="grid grid-cols-[40px,1fr] gap-4 md:gap-10"
     >
       <div className="flex items-center flex-col gap-4">
         <div className="rounded-full border border-gray-500 p-0.5">
@@ -91,9 +92,9 @@ export const ExperienceItem = ({ experience }: ExperienceItemProps) => {
           {teches.map((tech, i) => (
             <TechBadge
               name={tech.name}
-              key={`experience-${companyName}-tech-${tech.name}`}
-              // {...techBadgeAnimation}
+              {...techBadgeAnimation}
               transition={{ duration: 0.2, delay: i * 0.1 }}
+              key={`experience-${companyName}-tech-${tech.name}`}
             />
           ))}
         </div>

@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { ProjectSection } from '@/app/types/projects'
-// import { fadeUpAnimation } from '@/app/lib/animations'
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ProjectSection } from "@/app/types/projects";
+import { fadeUpAnimation } from "@/app/lib/animations";
 
 type ProjectSectionsProps = {
-  sections: ProjectSection[]
-}
+  sections: ProjectSection[];
+};
 
 export const ProjectSections = ({ sections }: ProjectSectionsProps) => {
   return (
@@ -15,8 +15,8 @@ export const ProjectSections = ({ sections }: ProjectSectionsProps) => {
       {sections.map((section) => (
         <motion.div
           key={section.title}
+          {...fadeUpAnimation}
           className="flex flex-col items-center gap-6 md:gap-12"
-          // {...fadeUpAnimation}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-2xl md:text-3xl font-medium text-gray-300">
@@ -33,5 +33,5 @@ export const ProjectSections = ({ sections }: ProjectSectionsProps) => {
         </motion.div>
       ))}
     </section>
-  )
-}
+  );
+};

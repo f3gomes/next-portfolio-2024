@@ -6,7 +6,7 @@ import Image from "next/image";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { Project } from "@/app/types/projects";
-// import { fadeUpAnimation } from '@/app/lib/animations'
+import { fadeUpAnimation } from "@/app/lib/animations";
 
 type ProjectCardProps = {
   project: Project;
@@ -40,7 +40,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className="flex-1 lg:py-[18px]">
         <motion.h3
           className="flex items-center gap-3 font-medium text-lg text-gray-50"
-          // {...fadeUpAnimation}
+          {...fadeUpAnimation}
           transition={{ duration: 0.7 }}
         >
           <Image
@@ -53,8 +53,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         </motion.h3>
 
         <motion.p
+          {...fadeUpAnimation}
           className="text-gray-400 my-6"
-          // {...fadeUpAnimation}
           transition={{ duration: 0.2, delay: 0.3 }}
         >
           {project.shortDescription}

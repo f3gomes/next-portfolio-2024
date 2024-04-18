@@ -6,6 +6,7 @@ import { ContactForm } from "./components/contact-form";
 import { BackToTop } from "./components/back-to-top";
 
 import "./globals.css";
+import { Toaster } from "./components/toaster";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${plexMono.variable}`}>
       <body>
+        <Toaster />
         <BackToTop />
         <Header />
         {children}

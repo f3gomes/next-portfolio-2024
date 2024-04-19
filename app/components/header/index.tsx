@@ -18,7 +18,10 @@ export function Header() {
     <header className="absolute top-0 z-10 h-24 w-full flex items-center justify-center">
       <div className="container flex items-center justify-between">
         <Link href={"/"}>
-          <RiTerminalBoxLine size={25} />
+          <RiTerminalBoxLine
+            size={25}
+            className="hover:text-emerald-500 transition duration-300"
+          />
         </Link>
 
         <nav className="flex items-center gap-4 sm:gap-10">

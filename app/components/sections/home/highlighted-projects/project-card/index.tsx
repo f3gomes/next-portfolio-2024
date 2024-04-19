@@ -1,18 +1,21 @@
 "use client";
 
-import { Link } from "@/app/components/link";
-import { TechBadge } from "@/app/components/tech-badge";
-import Image from "next/image";
-import { HiArrowNarrowRight } from "react-icons/hi";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { Link } from "@/app/components/link";
 import { Project } from "@/app/types/projects";
+import { HiArrowNarrowRight } from "react-icons/hi";
 import { fadeUpAnimation } from "@/app/lib/animations";
+import { TechBadge } from "@/app/components/tech-badge";
 
 type ProjectCardProps = {
   project: Project;
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const router = useRouter();
+
   return (
     <motion.div
       className="flex gap-6 lg:gap-12 flex-col lg:flex-row"
@@ -22,18 +25,19 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full"
+        className="w-full h-[300px] sm:h-[400px] lg:w-[420px] lg:h-[300px]"
         initial={{ opacity: 0, y: 100, scale: 0.5 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 100, scale: 0.5 }}
         transition={{ duration: 0.3, delay: 0.3 }}
       >
         <Image
-          src={project.thumbnail.url}
           width={420}
           height={304}
+          src={project.thumbnail.url}
           alt={`Thumbnail do projeto ${project.title}`}
-          className="w-full h-full object-cover rounded-lg"
+          onClick={() => router.push(`/projects/${project.slug}`)}
+          className="w-full h-full rounded-lg lg:object-cover cursor-pointer hover:opacity-70 transition duration-300"
         />
       </motion.div>
 
@@ -54,7 +58,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
         <motion.p
           {...fadeUpAnimation}
-          className="text-gray-400 my-6"
+          className="text-gray-400 my-6 text-justify"
           transition={{ duration: 0.2, delay: 0.3 }}
         >
           {project.shortDescription}
@@ -73,7 +77,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           ))}
         </div>
 
-        <Link href={`/projects/${project.slug}`}>
+        <Link href={`/projects/${project.slug}`} className="w-fit">
           Ver projeto
           <HiArrowNarrowRight />
         </Link>

@@ -19,7 +19,7 @@ export function NavItem({ label, href }: NavItemProps) {
       href={href}
       className={cn(
         "text-gray-400 flex items-center gap-2 font-medium font-mono",
-        isActive && "text-gray-50"
+        isActive ? "text-gray-50" : "hover:text-gray-50 transition duration-300"
       )}
     >
       <span className="text-emerald-400">#</span>

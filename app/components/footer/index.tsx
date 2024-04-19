@@ -1,7 +1,7 @@
-import { IoMdHeart } from "react-icons/io";
-import { RiTerminalBoxLine } from "react-icons/ri";
-
 export const Footer = () => {
+  const linkStyle =
+    "font-semibold text-emerald-600 hover:text-emerald-500 transition-all duration-300";
+
   return (
     <footer className="h-14 w-full flex items-center justify-center bg-gray-950">
       <span className="flex items-center gap-1.5 text-xs sm:text-sm font-mono text-gray-400">
@@ -11,7 +11,7 @@ export const Footer = () => {
             target="_blank"
             aria-label="Next.js"
             rel="noreferrer"
-            className="font-semibold hover:underline text-emerald-500"
+            className={linkStyle}
             href="https://nextjs.org"
           >
             Next.js
@@ -21,7 +21,7 @@ export const Footer = () => {
             target="_blank"
             aria-label="Vercel"
             rel="noreferrer"
-            className="font-semibold hover:underline text-emerald-500"
+            className={linkStyle}
             href="https://vercel.com"
           >
             Vercel

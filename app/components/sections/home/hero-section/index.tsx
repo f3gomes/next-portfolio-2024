@@ -60,8 +60,9 @@ export default function HeroSection({ homeInfo }: HomeSectionProps) {
           </div>
         </div>
 
-        <div>
+        <div className="flex justify-center w-full lg:w-fit">
           <Image
+            priority
             width={420}
             height={404}
             alt="Foto de perfil"

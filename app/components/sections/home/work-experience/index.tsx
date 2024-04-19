@@ -14,10 +14,10 @@ export const WorkExperience = ({ experiences }: WorkExperienceProps) => {
           subtitle="experiências"
           title="Experiência Profissional"
         />
-        <p className="text-gray-400 mt-6">
+        {/* <p className="text-gray-400 mt-6">
           Estou sempre aberto a novos desafios e projetos desafiadores. Vamos
           trabalhar juntos para criar soluções incríveis para sua empresa!
-        </p>
+        </p> */}
       </div>
 
       <div className="flex flex-col gap-4">

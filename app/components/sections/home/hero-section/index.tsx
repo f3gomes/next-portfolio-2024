@@ -47,8 +47,8 @@ export default function HeroSection({ homeInfo }: HomeSectionProps) {
             <div className="text-2xl text-gray-600 flex items-center h-20 gap-3">
               {homeInfo?.socials.map((contact) => (
                 <a
-                  href={"/"}
                   target="_blank"
+                  href={contact.url}
                   key={contact.url}
                   className="hover:text-gray-100 transition-colors"
                   rel="noreferrer"

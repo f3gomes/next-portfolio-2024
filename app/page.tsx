@@ -44,7 +44,7 @@ export default async function Home() {
           }
         }
 
-        workExperiences {
+        workExperiences(orderBy: endDate_DESC) {
           companyLogo {
             url
           }

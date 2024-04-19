@@ -8,6 +8,18 @@ import { BackToTop } from "./components/back-to-top";
 import "./globals.css";
 import { Toaster } from "./components/toaster";
 
+export const metadata = {
+  title: {
+    default: 'Home',
+    template: '%s | FGomes',
+  },
+  icons: [
+    {
+      url: '/favicon.svg',
+    },
+  ],
+}
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],

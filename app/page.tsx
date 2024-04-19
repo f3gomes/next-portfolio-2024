@@ -7,6 +7,10 @@ import { KnownTechs } from "./components/sections/home/known-techs";
 import { HighlightedProjects } from "./components/sections/home/highlighted-projects";
 import { WorkExperience } from "./components/sections/home/work-experience";
 
+export const metadata = {
+  title: "Home",
+};
+
 export default async function Home() {
   const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL!);
   const { page, workExperiences }: HomePageData = await hygraph.request(

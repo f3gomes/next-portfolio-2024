@@ -4,6 +4,10 @@ import { ProjectsList } from "../components/sections/projects/projects-list";
 import { ProjectsPageData } from "../types/page-info";
 import { GraphQLClient } from "graphql-request";
 
+export const metadata = {
+  title: "Projetos",
+};
+
 export default async function Projects() {
   const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_URL!);
   const { projects }: ProjectsPageData = await hygraph.request(
